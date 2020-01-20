@@ -46,28 +46,34 @@ mongoose.connect('mongodb://localhost/As1',{ useNewUrlParser: true , useUnifiedT
 
 
 //case 1
-
-// let dataDb=await dataModel.find()
-// .find({"tags":{$in:[["node","backend"],["aspnet","backend"],["express","backend"]]}})
-// .sort("tags")
-// .select(" tags -_id  author")
-
-// console.log(dataDb);
-
 let dataModel = mongoose.model("task1",{},"task1");
+     
 
+async function dataFromDb(){
+let dataDb=await dataModel.find()
+.find({"tags":{$in:[["node","backend"],["aspnet","backend"],["express","backend"]]}})
+.sort("tags")
+.select(" tags -_id  author")
 
+console.log(dataDb);
 
- // fetching Db Data
-
- async function dataFromDb(){
-//case2
-    let dataDb=await dataModel.find()
-                         .find()
-                         .sort("-price")
-                         .select(" author -_id")
-                         
-                        
-      console.log(dataDb);
 }
 dataFromDb();   
+
+// let dataModel = mongoose.model("task1",{},"task1");
+
+
+
+//  // fetching Db Data
+
+//  async function dataFromDb(){
+// //case2
+//     let dataDb=await dataModel.find()
+//                          .find()
+//                          .sort("-price")
+//                          .select(" author -_id")
+                         
+                        
+//       console.log(dataDb);
+// }
+// dataFromDb();   
