@@ -15,6 +15,7 @@ router.post("/postgenre", async(req,res)=>{
 })
 
 
+
 router.post("/postmovie",async(req,res)=>{
     let Movie =  new Data.MovieModel({
         name:req.body.name,
@@ -35,6 +36,11 @@ router.get("/getgenre",async(req,res)=>{
 
 router.get('/getmovie',async(req,res)=>{
     let Output=await Data.MovieModel.find().populate("genreId")
+    res.send(Output);
+})
+
+router.get('/getmovie/:id',async(req,res)=>{
+    let Output=await Data.MovieModel.findById(req.params.id).populate("genreId")
     res.send(Output);
 })
 
