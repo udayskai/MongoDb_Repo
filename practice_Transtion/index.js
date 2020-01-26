@@ -5,6 +5,9 @@ let api = require('./Routes/userRt.js');
 let ticket=require('./Routes/ticketRt.js');
 let bookticket = require('./Routes/bookmovie.js')
 let port = process.env.PORT || 4000;
+let fawn=require('fawn');
+
+fawn.init(mongoose);
 app.use(express.json());
 
 mongoose.connect("mongodb://localhost/PracticeTRANSITION",{useNewUrlParser:true, useUnifiedTopology:true })
