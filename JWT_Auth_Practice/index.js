@@ -1,6 +1,7 @@
 const express= require('express');
 const mongoose=require('mongoose');
 const UserRouter=require('./route_Auth/userRoute.js')
+let UserAuth =require('./route_Auth/login.js')
 
 
 const port = process.env.Port || 4000; //to way to start the application
@@ -15,7 +16,7 @@ mongoose
 
 
 app.use('/api',UserRouter)
-
+app.use('/apiAuth',UserAuth)
 
 
 
