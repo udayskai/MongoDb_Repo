@@ -7,9 +7,9 @@ let router=express.Router();
 
 router.post('/postuser',async(req,res)=>{
     let {error}=joiValidation(req.body);
-    // console.log(error);
-    if(error){ return res.send("invalid data type")};
-    let data= new userD.userModel({
+     if(error){ return res.send("invalid data type")};
+   
+     let data= new userD.userModel({
         name:req.body.name,
         email:req.body.email
     })
