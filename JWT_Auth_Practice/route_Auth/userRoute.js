@@ -45,3 +45,23 @@ router.get('/getdata',async(req,res)=>{
 
 
 module.exports =router;
+
+
+
+// {
+//   "FirstName":"iphone",
+//   "Age":"10",
+//   "LastName":"Apple",
+//    "UserLogin": {
+//       "UserName": "iMac",
+//        "Password": "iMac2"}
+// }
+
+// {
+//   "FirstName":"cricket",
+//   "Age":"150",
+//   "LastName":"BatBall",
+//    "UserLogin": {
+//       "UserName": "ICC",
+//        "Password": "BCCI"}
+// }

@@ -1,5 +1,8 @@
 let mongoose =require('mongoose');
-const Joi = require('@hapi/joi')
+const Joi = require('@hapi/joi');
+let jwt = require('jsonwebtoken');
+let config =require('config');
+
 
 let userSchema =new mongoose.Schema({
      FirstName:{type:String, required:true,min:2,max:255},
@@ -9,8 +12,12 @@ let userSchema =new mongoose.Schema({
          UserName:{type:String,required:true,min:4,max:255},
          Password:{type:String,min:4,max:1000}
      }
-     
-})
+     })
+
+     userSchema.methods.tokenMaker = function(){
+       let token= jwt.sign({_id:this._id},config.get("apitoken"))// error this._id  //userSchema.methods not method
+               return token;
+     }
 
 
 let errorValidation = (error)=>{
