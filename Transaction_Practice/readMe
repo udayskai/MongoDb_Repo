@@ -1,0 +1,6 @@
+
+
+    let userstocks = await user.userModel.findById(req.body.userId).catch( error => {
+           if(error){res.end("invalid id please check");}} );
+
+     if (!userstocks){return res.status(403).send({ message: "invalid movie id" }) };
