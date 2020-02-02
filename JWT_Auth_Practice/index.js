@@ -19,7 +19,7 @@ mongoose
 
 app.use('/api',UserRouter)
 app.use('/api',UserAuth)
-app.use('/api',AuthApi)
+app.use('/apiAll',AuthApi)
 
 
 

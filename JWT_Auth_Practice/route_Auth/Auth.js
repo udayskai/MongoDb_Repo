@@ -4,11 +4,17 @@ let express=require('express');
 let router = express.Router();
 let Joi = require('@hapi/joi');
 let bcrypt =require('bcrypt');
-let config=require('config');
+let Mid=require('../Midddleware/login.js')
 
 
 
 let userData= require('../auth_Db/userDb');
+
+router.get('/getAllData',Mid,async(req,res)=>{
+    let allData = await userData.userModel.find();
+    res.send(allData);
+ })
+
 
 
 router.post('/authLogin',async(req,res)=>{
@@ -27,7 +33,7 @@ router.post('/authLogin',async(req,res)=>{
                 //  jwt.sign({_id:username._id},// config.get("apitoken"))
                 
 
-                res.send({d:"Login SuccessFull _________________",token:token})
+                res.header("x-token-name",token).send({d:"Login SuccessFull __________Inida_______"})
 
 })
  

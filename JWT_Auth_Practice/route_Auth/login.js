@@ -3,9 +3,13 @@ let Joi = require('@hapi/joi');
 let userData=require('../auth_Db/userDb.js');
  const router=express.Router();
  const bcrypt=require('bcrypt')
+ let Mid = require('../Midddleware/login.js')
 
 
-
+router.get('/getLoginData',Mid,async(req,res)=>{
+   let allData =await  userData.userModel.find();
+   res.send({d:allData});
+})
 
 router.post('/loginPost',async(req,res)=>{  
     let {error}=errorValidation(req.body)
