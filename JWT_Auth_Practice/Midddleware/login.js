@@ -9,7 +9,8 @@ function UserAuth(req,res,next){
  
   
      let decoder= jwt.verify(token,config.get("apitoken"));
-     console.log(decoder)//{ _id: '5e372a0c75fdd12990186c01', iat: 1580673886 }
+     console.log(decoder)
+     //{ _id: '5e372a0c75fdd12990186c01', iat: 1580673886 } output
      
      next()
     }
